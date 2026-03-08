@@ -3,10 +3,24 @@
 	This problem requires you to implement a sorting algorithm
 	you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
-// I AM NOT DONE
 
-fn sort<T>(array: &mut [T]){
-	//TODO
+
+fn sort<T: Ord>(array: &mut [T]){
+	let lennn=array.len();
+    if lennn<=1{
+        return;
+    }
+    for i in 0..lennn{
+        let mut min_idx=i;
+        for j in i+1..lennn{
+            if array[j]<array[min_idx]{
+                min_idx=j;
+            }
+        }
+        if min_idx!=i{
+            array.swap(i, min_idx);
+        }
+    }
 }
 #[cfg(test)]
 mod tests {
